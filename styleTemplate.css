@@ -133,7 +133,7 @@ button {
 .information-list {
     display: flex;
     flex-direction: column;
-    gap: 11px;
+    gap: 40px;
 
     margin-left: 17px;
 }
@@ -145,7 +145,7 @@ button {
      * Largeur de la colonne des libellés.
      * La valeur commence toujours au même endroit.
      */
-    grid-template-columns: 225px minmax(0, 1fr);
+    grid-template-columns: 300px minmax(1fr, 2fr);
     align-items: center;
     column-gap: 0;
 
@@ -178,30 +178,40 @@ button {
 
 .actions {
     margin-top: 19px;
+   
 }
 
 .actions-title {
-    margin-left: 26px;
+    
     margin-bottom: 36px;
+   
+    
+    width: 90px;
+    margin-inline: auto ;
+
 }
 
 /* Boutons de première ligne */
 
 .primary-actions {
     display: grid;
-    grid-template-columns: 250px 289px;
-    gap: 25px;
-    margin-left: 90px;
+    grid-template-columns: 250px 267px;
+    gap: 22px;
+    width: fit-content;
+    margin-inline: auto;
 }
 
 /* Boutons de deuxième ligne */
 
 .secondary-actions {
     display: grid;
-    grid-template-columns: 250px 289px;
-    gap: 25px;
-    margin-top: 25px;
-    margin-left: 90px;
+    grid-template-columns: 250px 267px;
+    gap: 22px;
+
+    
+    width: fit-content;
+    margin: 22px auto 0;
+
 }
 
 /* =========================
@@ -314,6 +324,13 @@ button {
         grid-template-columns: minmax(0, 1fr);
         gap: 14px;
     }
+
+    /* Conserve les dimensions et l'alignement du texte */
+.primary-actions .button,
+.secondary-actions .button {
+    width: 100%;
+    min-height: 72px;
+}
 
     .secondary-actions {
         margin-top: 14px;
