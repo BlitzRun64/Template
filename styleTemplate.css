@@ -189,22 +189,19 @@ button {
 
 .primary-actions {
     display: grid;
-
     grid-template-columns: 250px 289px;
-    justify-content: center;
     gap: 25px;
+    margin-left: 90px;
 }
 
 /* Boutons de deuxième ligne */
 
 .secondary-actions {
     display: grid;
-
-    grid-template-columns: 223px 224px;
-    justify-content: center;
-    gap: 72px;
-
-    margin-top: 35px;
+    grid-template-columns: 250px 289px;
+    gap: 25px;
+    margin-top: 25px;
+    margin-left: 90px;
 }
 
 /* =========================
@@ -320,6 +317,12 @@ button {
 
     .secondary-actions {
         margin-top: 14px;
+    }
+
+    .secondary-actions .button {
+    width: 90%;
+    justify-self: center;
+    min-height: 55px;
     }
 
     .button {
