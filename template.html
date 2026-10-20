@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion du titre</title>
+    <link rel="stylesheet" href="styleTemplate.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <header class="header">
+            <h1>Gestion du titre</h1>
+        </header>
+
+        <main class="main-content">
+
+            <section class="informations">
+                <h2 class="section-title">
+                    <span class="info-icon" aria-hidden="true">i</span>
+                    <span>Informations</span>
+                </h2>
+
+                <div class="information-list">
+                    <div class="information-row">
+                        <span class="information-label">
+                            Statut de connexion au LMS :
+                        </span>
+                        <span class="status status-connected">
+                            vous êtes connecté
+                        </span>
+                    </div>
+
+                    <div class="information-row">
+                        <span class="information-label">
+                            Le régulateur dynamique est :
+                        </span>
+                        <span class="status status-inactive">
+                            Inactif
+                        </span>
+                    </div>
+
+                    <div class="information-row">
+                        <span class="information-label">
+                            La tension total des bornes est à   
+                        </span>
+                        <span class="status status-voltage">
+                            60/60
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="actions">
+                <h2 class="section-title actions-title">
+                    <span>Actions</span>
+                </h2>
+
+                <div class="primary-actions">
+                    <button type="button" class="button button-primary">
+                        Connecter/déconnecter
+                    </button>
+
+                    <button type="button" class="button button-primary">
+                        Activé régulation dynamique
+                    </button>
+                </div>
+
+                <div class="secondary-actions">
+                    <button type="button" class="button button-secondary">
+                        Définir le seuil dans ce champ
+                    </button>
+
+                    <button type="button" class="button button-secondary">
+                        Choisir un mode
+                    </button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+
+/* =========================
+   1. Variables de la charte
+   ========================= */
+
+:root {
+    --color-brand-green: #173D2D;
+    --color-background: #20252B;
+    --color-surface: #2D343C;
+    --color-surface-secondary: #252C32;
+
+    --color-lime: #85EA2D;
+    --color-cyan: #4DD8E8;
+    --color-text: #F4F6F8;
+
+    --color-success: #3FB950;
+    --color-error: #FF4B35;
+
+    --color-frame: #393939;
+}
+
+/* =========================
+   2. Réinitialisation
+   ========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+button {
+    font: inherit;
+}
+
+/* =========================
+   3. Conteneur principal
+   ========================= */
+
+.app {
+    min-height: 100vh;
+    border: 3px solid var(--color-frame);
+    background: var(--color-background);
+}
+
+/* =========================
+   4. En-tête
+   ========================= */
+
+.header {
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--color-brand-green);
+}
+
+.header h1 {
+    margin: 0;
+    color: var(--color-lime);
+    font-size: 36px;
+    line-height: 1;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* =========================
+   5. Zone de contenu
+   ========================= */
+
+.main-content {
+    padding: 40px 26px 50px;
+}
+
+/* =========================
+   6. Titres des sections
+   ========================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    width: fit-content;
+    margin: 0 0 8px 0;
+
+    color: var(--color-lime);
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Icône d'information */
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+
+    border-radius: 50%;
+    background: var(--color-cyan);
+    color: var(--color-background);
+
+    font-size: 12px;
+    font-weight: 800;
+    font-style: normal;
+    text-decoration: none;
+}
+
+/* =========================
+   7. Informations
+   ========================= */
+
+.information-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    margin-left: 17px;
+}
+
+.information-row {
+    display: grid;
+
+    /*
+     * Largeur de la colonne des libellés.
+     * La valeur commence toujours au même endroit.
+     */
+    grid-template-columns: 225px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 0;
+
+    min-height: 17px;
+    line-height: 1.2;
+}
+
+.information-label {
+    color: var(--color-text);
+    white-space: nowrap;
+}
+
+.status {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status-connected {
+    color: var(--color-success);
+}
+
+.status-inactive,
+.status-voltage {
+    color: var(--color-error);
+}
+
+/* =========================
+   8. Actions
+   ========================= */
+
+.actions {
+    margin-top: 19px;
+}
+
+.actions-title {
+    margin-left: 26px;
+    margin-bottom: 36px;
+}
+
+/* Boutons de première ligne */
+
+.primary-actions {
+    display: grid;
+
+    grid-template-columns: 250px 289px;
+    justify-content: center;
+    gap: 25px;
+}
+
+/* Boutons de deuxième ligne */
+
+.secondary-actions {
+    display: grid;
+
+    grid-template-columns: 223px 224px;
+    justify-content: center;
+    gap: 72px;
+
+    margin-top: 35px;
+}
+
+/* =========================
+   9. Style commun des boutons
+   ========================= */
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 55px;
+    padding: 12px 15px;
+
+    border: 1px solid transparent;
+    border-radius: 16px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background-color 150ms ease,
+        border-color 150ms ease,
+        transform 150ms ease;
+}
+
+/* Boutons principaux */
+
+.button-primary {
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+/* Boutons secondaires */
+
+.button-secondary {
+    background: var(--color-surface-secondary);
+    color: var(--color-cyan);
+    border-radius: 11px;
+}
+
+/* Survol */
+
+.button-primary:hover {
+    background: #3B444E;
+    border-color: #596673;
+}
+
+.button-secondary:hover {
+    background: #303A43;
+    border-color: var(--color-cyan);
+}
+
+/* Clic */
+
+.button:active {
+    transform: scale(0.98);
+}
+
+/* Navigation au clavier */
+
+.button:focus-visible {
+    outline: 3px solid var(--color-cyan);
+    outline-offset: 3px;
+}
+
+/* =========================
+   10. Adaptation mobile
+   ========================= */
+
+@media (max-width: 650px) {
+    .header {
+        min-height: 55px;
+        height: auto;
+        padding: 12px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .main-content {
+        padding: 30px 18px;
+    }
+
+    .information-list {
+        margin-left: 0;
+    }
+
+    .information-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 5px;
+    }
+
+    .information-label,
+    .status {
+        white-space: normal;
+    }
+
+    .actions-title {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .primary-actions,
+    .secondary-actions {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+    }
+
+    .secondary-actions {
+        margin-top: 14px;
+    }
+
+    .button {
+        width: 100%;
+        min-height: 48px;
+    }
+}
