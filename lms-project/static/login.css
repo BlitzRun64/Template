@@ -1,0 +1,288 @@
+/* =========================
+   1. Variables de la charte (identiques à style.css)
+   ========================= */
+:root {
+    --color-brand-green: #173D2D;
+    --color-background: #12171c;
+    --color-surface: #1c242c;
+    --color-surface-secondary: #171d24;
+    --color-lime: #4d95e8;          /* bleu principal */
+    --color-cyan: #4DD8E8;
+    --color-text: #F4F6F8;
+    --color-muted: #9aa8b6;
+
+    --color-success: #3FB950;
+    --color-error: #FF4B35;
+
+    --color-border: #2f3a45;
+    --radius: 16px;
+}
+
+
+/* =========================
+   2. Réinitialisation + page
+   ========================= */
+* { box-sizing: border-box; }
+
+html, body { margin: 0; min-height: 100%; }
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+
+    font-family: "Segoe UI", Roboto, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text);
+    background:
+        radial-gradient(900px 500px at 85% -10%, rgba(77, 149, 232, 0.14), transparent 60%),
+        radial-gradient(700px 400px at -10% 110%, rgba(63, 185, 80, 0.10), transparent 60%),
+        var(--color-background);
+}
+
+
+/* =========================
+   3. En-tête (identique à la page principale)
+   ========================= */
+header {
+    flex: 0 0 64px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 28px;
+    background: #ffffff;
+    border-bottom: 3px solid var(--color-brand-green);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+header img { height: 40px; width: auto; }
+
+header h1.titre {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--color-brand-green);
+}
+
+
+/* =========================
+   4. Zone centrale
+   ========================= */
+main {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 24px 20px;
+}
+
+
+/* =========================
+   5. Carte de connexion
+   ========================= */
+.carte-login {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px 30px 22px;
+    background: linear-gradient(180deg, var(--color-surface), var(--color-surface-secondary));
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-lime);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.6);
+}
+
+.carte-login h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--color-lime);
+}
+
+.login-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-lime);
+    color: var(--color-background);
+}
+
+.sous-titre {
+    margin: 0 0 20px;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+}
+
+
+/* =========================
+   6. Message d'erreur
+   ========================= */
+.message-erreur {
+    margin: 0 0 16px;
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    color: var(--color-error);
+    background: rgba(255, 75, 53, 0.12);
+    border: 1px solid rgba(255, 75, 53, 0.45);
+    border-left: 3px solid var(--color-error);
+    border-radius: 10px;
+}
+
+.message-erreur[hidden] { display: none; }
+
+
+/* =========================
+   7. Champs
+   ========================= */
+.champ { margin: 0 0 16px; }
+
+.champ label {
+    display: block;
+    margin: 0 0 6px;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+}
+
+.champ input {
+    width: 100%;
+    padding: 11px 14px;
+    font: inherit;
+    color: var(--color-text);
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.champ input:focus {
+    outline: none;
+    border-color: var(--color-lime);
+    box-shadow: 0 0 0 3px rgba(77, 149, 232, 0.25);
+}
+
+/* Champ en erreur (classe ajoutée par login.js) */
+.champ input.invalide {
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 3px rgba(255, 75, 53, 0.18);
+}
+
+/* Champ mot de passe + bouton "œil" */
+.champ-mdp { position: relative; }
+.champ-mdp input { padding-right: 46px; }
+
+.mdp-toggle {
+    position: absolute;
+    top: 50%;
+    right: 6px;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    color: var(--color-muted);
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease;
+}
+
+.mdp-toggle:hover { color: var(--color-text); background: rgba(255, 255, 255, 0.08); }
+.mdp-toggle:focus-visible { outline: 3px solid var(--color-cyan); outline-offset: 1px; }
+
+/* La barre n'apparaît que lorsque le mot de passe est visible */
+.mdp-toggle .barre { opacity: 0; transition: opacity 0.15s ease; }
+.mdp-toggle[aria-pressed="true"] .barre { opacity: 1; }
+
+.avertissement-maj {
+    margin: 6px 0 0;
+    font-size: 0.8rem;
+    color: #f0b429;
+}
+.avertissement-maj[hidden] { display: none; }
+
+
+/* =========================
+   8. Bouton de connexion
+   ========================= */
+.button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--btn-a, #2f6fbf), var(--btn-b, #4d95e8));
+    box-shadow: 0 6px 20px -8px var(--btn-b, #4d95e8);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.button:hover         { transform: translateY(-2px); filter: brightness(1.12); }
+.button:active        { transform: translateY(0);    filter: brightness(0.95); }
+.button:focus-visible { outline: 3px solid var(--color-cyan); outline-offset: 3px; }
+
+.btn-connexion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+    font-size: 1.05rem;
+}
+
+.btn-connexion:disabled {
+    cursor: progress;
+    filter: brightness(0.85);
+    transform: none;
+}
+
+.spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: tourne 0.7s linear infinite;
+}
+.btn-connexion.chargement .spinner { display: inline-block; }
+
+@keyframes tourne { to { transform: rotate(360deg); } }
+
+
+/* =========================
+   9. Pied de carte
+   ========================= */
+.pied-carte {
+    margin: 18px 0 0;
+    padding-top: 14px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    border-top: 1px solid var(--color-border);
+}
+
+
+/* =========================
+   10. Petits écrans / accessibilité
+   ========================= */
+@media (max-width: 480px) {
+    header { padding: 0 16px; }
+    .carte-login { padding: 22px 20px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 1.6s !important; transition: none !important; }
+}
